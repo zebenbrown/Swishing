@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "InputSystem_Actions",
     "maps": [
         {
@@ -986,6 +987,54 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "SwipeMinigame",
+            "id": "d5c60093-ef4e-4f87-8782-e3a829a505d8",
+            "actions": [
+                {
+                    "name": "BeginMinigame",
+                    "type": "Button",
+                    "id": "e4577add-2648-4e6c-a786-54a56ca1fd6d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwipeStart",
+                    "type": "Button",
+                    "id": "f020f39e-8f54-4557-bab2-2f23f0ba50eb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c5c9c19d-2f10-4c75-befd-3c56ea2efcae",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BeginMinigame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b930514-177f-445b-8c08-39b4fef6df96",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwipeStart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
