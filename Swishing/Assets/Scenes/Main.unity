@@ -284,7 +284,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   hook: {fileID: 1258162422}
   hookRb: {fileID: 1258162423}
-  castSpeed: 20
+  castSpeed: 2000
+  hookMoveSpeed: 2
+  hookCollider: {fileID: 1258162424}
 --- !u!136 &938387264
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -878,7 +880,7 @@ GameObject:
   - component: {fileID: 1869864265}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
