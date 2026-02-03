@@ -1,69 +1,80 @@
-using UnityEditor;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class SwipeGameManager : MonoBehaviour
 {
-    private GameManager gameManager;
+    [SerializeField] private PanelGroupScript panelGroup;
+    [SerializeField] private SwipeInput swipeInput;
 
-    private bool minigameActive = false;
+    [SerializeField] private GameObject WinPanel;
+    [SerializeField] private GameObject LosePanel;
 
-    public float minSwipeDistance = 100f;
-    public float maxSwipeTime = 0.5f;
+    private int difficulty; // 1–3
+    private int currentSequence;
+    private const int TOTAL_SEQUENCES = 4;
 
-    private Vector2 startPos;
-    private float mouseDistance;
-    private float startTime;
-    private bool tracking;
-    private bool mouseDown = false;
-
-    [SerializeField] private InputActionReference swipeStart;
-
-    private void Start()
+    public void StartDifOne(InputAction.CallbackContext context)
     {
-        gameManager = GetComponent<GameManager>();
+        StartSwipeGame(1);
     }
 
-    private void OnEnable()
+    public void StartDifTwo(InputAction.CallbackContext context)
     {
-        swipeStart.action.performed += TrackMouse;
+        StartSwipeGame(2);
     }
 
-    private void TrackMouse(InputAction.CallbackContext context)
+    public void StartDifThree(InputAction.CallbackContext context)
     {
-        if (minigameActive)
+        StartSwipeGame(3);
+    }
+
+    public void StartSwipeGame(int diff = 1)
+    {
+        if (WinPanel != null)
         {
-            startPos = Input.mousePosition;
-            startTime = Time.time;
-            tracking = true;
-            mouseDown = true;
+            WinPanel.SetActive(false);
         }
-    }
-
-    private void DEBUGCheckMouseDirection()
-    {
-        Debug.Log(Vector2.Distance(startPos, Input.mousePosition));
-    }
-
-    private void CheckSwipeDirection(Vector2 currMousePos)
-    {
-        if (currMousePos.x < (startPos.x - 100))
+        if (LosePanel != null)
         {
-            if (currMousePos.y < (startPos.y - 100))
-            {
-
-            }
-            else
-            {
-
-            }
+            LosePanel.SetActive(false);
         }
+        difficulty = diff;
+        currentSequence = 0;
+        Debug.Log("Swipe Minigame Started | Difficulty: " + difficulty);
+        StartNextSequence();
     }
 
-    public void StartSwipeGame()
+    private void StartNextSequence()
     {
-        minigameActive = true;
+        if (currentSequence >= TOTAL_SEQUENCES)
+        {
+            if (WinPanel != null)
+            {
+                WinPanel.SetActive(true);
+            }
+            Debug.Log("MINIGAME WON");
+            return;
+        }
 
-        Debug.Log("Minigame Started");
+        panelGroup.ClearPanels();
+        panelGroup.SpawnArrows(difficulty);
+        swipeInput.EnableInput(panelGroup.GetArrows());
+
+        currentSequence++;
+    }
+
+    public void SequenceFailed()
+    {
+        if (LosePanel != null)
+        {
+            LosePanel.SetActive(true);
+        }
+        Debug.Log("MINIGAME FAILED");
+    }
+
+    public void SequenceSucceeded()
+    {
+        StartNextSequence();
     }
 }

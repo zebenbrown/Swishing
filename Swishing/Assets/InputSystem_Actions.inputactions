@@ -997,7 +997,7 @@
             "id": "d5c60093-ef4e-4f87-8782-e3a829a505d8",
             "actions": [
                 {
-                    "name": "BeginMinigame",
+                    "name": "LeftClick",
                     "type": "Button",
                     "id": "e4577add-2648-4e6c-a786-54a56ca1fd6d",
                     "expectedControlType": "",
@@ -1006,9 +1006,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwipeStart",
+                    "name": "Tier1Start",
                     "type": "Button",
                     "id": "f020f39e-8f54-4557-bab2-2f23f0ba50eb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Tier2Start",
+                    "type": "Button",
+                    "id": "effe65ca-c676-4c66-8264-4abdfec86aa6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Tier3Start",
+                    "type": "Button",
+                    "id": "c2c339b9-5960-4e3a-8ce8-4355b072afd1",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1019,22 +1037,44 @@
                 {
                     "name": "",
                     "id": "c5c9c19d-2f10-4c75-befd-3c56ea2efcae",
-                    "path": "<Keyboard>/f",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BeginMinigame",
+                    "action": "LeftClick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "9b930514-177f-445b-8c08-39b4fef6df96",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Keyboard>/1",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "SwipeStart",
+                    "action": "Tier1Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79197e8d-d626-4888-87a4-bfeee472472c",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tier2Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "303951d3-ad4c-4b28-b9f7-7b141b9287be",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tier3Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
