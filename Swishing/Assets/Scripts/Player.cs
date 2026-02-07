@@ -11,11 +11,18 @@ public class Player : MonoBehaviour
 
     bool isInWater;
 
+    private AudioSource catchFishSound;
+
     [SerializeField] Rigidbody hookRb;
     [SerializeField] float castSpeed;
     [SerializeField] float hookMoveSpeed;
     [SerializeField] Collider hookCollider;
     
+    private void Awake()
+    {
+        catchFishSound = GetComponent<AudioSource>();
+    }
+
     public void FixedUpdate()
     {
         hookRb.linearVelocity = new Vector2(horizontalMovement, verticalMovement);
@@ -25,6 +32,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Cast");
         hookRb.AddForce(transform.up * castSpeed * -1);
+        catchFishSound.Play();
     }
 
     public void Move(InputAction.CallbackContext context)
