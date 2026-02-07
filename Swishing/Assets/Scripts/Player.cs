@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     public GameObject hook;
+    public GameObject gameManager;
 
     float horizontalMovement;
     float verticalMovement;
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
         horizontalMovement = (context.ReadValue<Vector2>().x) * hookMoveSpeed;
         verticalMovement = (context.ReadValue<Vector2>().y) * hookMoveSpeed;
     }
-
+    /*
     private void OnTriggerEnter(Collider collision)
     {
         if (hookCollider.gameObject.CompareTag("Water"))
@@ -40,4 +41,7 @@ public class Player : MonoBehaviour
             Debug.Log("Splash!");
         }
     }
+    */
+
+
 }

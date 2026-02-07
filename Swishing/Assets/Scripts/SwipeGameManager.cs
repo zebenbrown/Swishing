@@ -9,6 +9,7 @@ public class SwipeGameManager : MonoBehaviour
 
     [SerializeField] private GameObject WinPanel;
     [SerializeField] private GameObject LosePanel;
+    [SerializeField] private GameObject ArrowPanel;
 
     private int difficulty; // 1–3
     private int currentSequence;
@@ -39,6 +40,8 @@ public class SwipeGameManager : MonoBehaviour
         {
             LosePanel.SetActive(false);
         }
+
+        ArrowPanel.SetActive(true);
         difficulty = diff;
         currentSequence = 0;
         Debug.Log("Swipe Minigame Started | Difficulty: " + difficulty);
@@ -52,6 +55,7 @@ public class SwipeGameManager : MonoBehaviour
             if (WinPanel != null)
             {
                 WinPanel.SetActive(true);
+                ArrowPanel.SetActive(false);
             }
             Debug.Log("MINIGAME WON");
             return;
@@ -69,6 +73,7 @@ public class SwipeGameManager : MonoBehaviour
         if (LosePanel != null)
         {
             LosePanel.SetActive(true);
+            ArrowPanel.SetActive(false);
         }
         Debug.Log("MINIGAME FAILED");
     }

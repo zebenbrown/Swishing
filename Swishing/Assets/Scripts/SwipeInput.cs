@@ -32,6 +32,8 @@ public class SwipeInput : MonoBehaviour
 
         if (SwipePress.action.WasPressedThisFrame())
         {
+            //Debug.Log("Swiper yes Swiping");
+
             startPos = Mouse.current.position.ReadValue();
             swiping = true;
             //arrowQueue.First<SingleArrowScript>().SetColor(ActiveColor);
@@ -42,6 +44,7 @@ public class SwipeInput : MonoBehaviour
             Vector2 endPos = Mouse.current.position.ReadValue();
             Vector2 delta = endPos - startPos;
             swiping = false;
+            //Debug.Log("Swiper no Swiping");
 
             Vector2 dir = delta.normalized;
             SingleArrowScript currentArrow = arrowQueue.Dequeue();
